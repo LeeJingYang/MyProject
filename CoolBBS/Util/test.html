@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#fd{
+				width:600px;
+				/*border:2px solid blanchedalmond;*/
+				/*overflow:auto;*/
+				margin:0 auto;
+				/*border-radius:50px;*/
+			}
+			#fd ul li{
+				list-style: none;
+				width:100%;
+				display: none;
+			}
+			#fd li img{
+				background-size: auto;
+				margin:0 auto;
+				width: 100%;
+				border-radius:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fd">
+			<ul>
+				<li style="display: block;"><a href="###"><img src="../img/xmad_15127346139897_mVvPT.jpg"/></a></li>
+				<li><a href="###"><img src="../img/xmad_15130878026078_dQNUL.jpg"/></a></li>
+				<li><a href="###"><img src="../img/xmad_1513304443358_gzjfM.jpg"/></a></li>
+				<li><a href="###"><img src="../img/xmad_15142058803402_hlmZJ.jpg"/></a></li>
+				<li><a href="###"><img src="../img/xmad_15142935262383_cBEjQ.jpg"/></a></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../js/jquery-1.7.2/jquery.min.js" ></script>
+		<script>
+			var app={
+				time:null,
+				fd:"123",
+				i:0,
+				index:$("#fd ul li").length,
+				init:function(){
+					app.dast();
+					app.start();
+					$("#d1 a:eq(0)").css("background-color","red")
+					app.cldis();
+				},
+				clearStyle:function(){
+					app.i++;;
+					app.fdes();
+					app.fonts()
+					if(app.i>=app.index){
+						app.i=0;
+						app.fdes();
+						$("#fd ul li:eq(0)").css("display","block");
+						$("#d1 a:eq(0)").css("background-color","red")
+					}
+					$("#d1 a:eq("+app.i+")").css("background-color","red");
+				},
+				fdes:function(){
+					for(var d=0;d<app.index;d++){
+						$("#d1 a:eq("+d+")").css("background-color","black");
+						$("#fd ul li:eq("+d+")").css("display","");
+					}
+				},
+				fonts:function(){
+					$("#fd ul li:eq("+app.i+")").css("display","block");
+				},
+				cldis:function(){
+					$("#d1 a").on("click",function(){
+						app.fdes();
+						var count=this.title;
+						app.stop();
+						app.i=count;
+						app.fonts();
+						$("#d1 a:eq("+app.i+")").css("background-color","red")
+						app.start();
+					})
+				},
+				dast:function(){
+					$("<div/>").attr("id","d1").css({"position":"relative","left":"260px","top":"-40px"}).appendTo("#fd");
+					for(var k=0;k<app.index;k++){
+						$("<a/>").attr("title",k).css({"display":"block","background-color":"black","width":"10px","height":"10px","border-radius":"5px","float":"left","margin-left":"10px"}).appendTo("#d1");
+					}
+				},
+				stop:function(){
+					clearInterval(app.time);
+				},
+				start:function(){
+					app.time=setInterval(app.clearStyle,1000);
+				}
+			}
+			app.init();
+		</script>
+	</body>
+</html>

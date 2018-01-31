@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+body {
+    background-color: #fafafa;
+}
+
+h6 {
+    color: #999;
+}
+
+a {
+    border: none;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    color: #666;
+    text-align: left;
+    font-size: 14px;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/static/mdl/font/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(/static/mdl/font/MaterialIcons-Regular.woff2) format('woff2'),
+    url(/static/mdl/font/MaterialIcons-Regular.woff) format('woff'),
+    url(/static/mdl/font/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.hide {
+    display: none;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.app-card {
+    padding: 25px 15px;
+    border-radius: 2px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.app-card-title {
+    display: none;
+}
+
+.app-button-wide {
+    width: 100%;
+    height: 44px;
+}
+
+.app-button-gray {
+    color: #999;
+}
+
+.app-button-white {
+    color: #ddd;
+}
+
+.mdl-button--fab {
+    font-size: 20px;
+}
+
+.mdl-button--raised {
+    box-shadow: none;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    color: #f5f5f5;
+    font-size: 18px;
+}
+
+.app-tip {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: #666666;
+    font-size: 14px;
+    text-align: center
+}
+
+.app-error {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: #ff0000;
+    font-size: 14px;
+    text-align: center
+}
+
+.app-loading {
+    position: fixed;
+    display: none;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    margin-top: 22px;
+    margin-left: calc(50% - 20px);
+    background-color: #fff;
+    z-index: 9999;
+}
+
+.app-loading > .mdl-spinner {
+    margin-top: 6px;
+    width: 20px;
+    height: 20px;
+}
+
+.mdl-textfield {
+    width: 100%;
+}
+
+.mdl-textfield__input {
+    border-bottom-color: #ccc;
+}
+
+.mdl-textfield__label {
+    color: #9a9a9a;
+}
+
+.mdl-textfield > .mdl-button {
+    position: absolute;
+    right: 0;
+    margin-bottom: 3px;
+}
+
+.mdl-card__actions {
+    padding: 15px 0;
+}
+
+.mdl-card__supporting-text {
+    width: auto;
+}
+
+@media (min-width: 640px) {
+    .app-container {
+        margin: 10vh auto;
+    }
+
+    .app-card {
+        padding: 50px;
+        background-color: white;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+
+    .app-card-title, .mdl-layout--fixed-header > .mdl-layout__header {
+        display: block;
+    }
+
+    .app-button-loading {
+        margin-left: calc(50% - 20px);
+    }
+}

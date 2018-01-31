@@ -1,0 +1,111 @@
+﻿.returnHomePage {
+    color: #8D8D8D;
+    text-decoration: none;
+}
+    .returnHomePage:hover{
+        color: #53BF57;
+        cursor: pointer;
+    }
+    .cursorpointer:hover{
+        cursor:pointer;
+    }
+#div_menu {
+    margin: 0;
+    margin-top: 30px;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 45px;
+    background: #49B04D !important;
+}
+
+    #div_menu ul {
+        display: inline-block;
+        margin: auto;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        #div_menu ul li {
+            margin: 0;
+            float: left;
+            height: 32px;
+            text-align: center;
+        }
+
+            #div_menu ul li a {
+                width: 130px;
+                color: white;
+                padding-top: 15px;
+                display: inline-block;
+                height: 30px;
+                text-decoration: none;
+            }
+
+            #div_menu ul li:hover a {
+                background: #4cff00;
+            }
+
+.textUserRemark {
+    height: 25px;
+    width: 300px;
+    border: solid darkgray 1px;
+    outline-color: transparent;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+.textHobby {
+    height: 60px;
+    width: 300px;
+    border: solid darkgray 1px;
+    outline-color: transparent;
+    border-radius: 8px;
+    margin-top: 6px;
+    resize:none;
+}
+.cboGender {
+    height: 25px;
+    border: solid darkgray 1px;
+    outline-color: transparent;
+    border-radius: 6px;
+    margin-top: 9px;
+}
+.cbobirth {
+    height: 25px;
+    border: solid darkgray 1px;
+    outline-color: transparent;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+#div_Info label{
+    font-size:15px;
+}
+.btnSaveUserInfo {
+    width: 120px;
+    height: 35px;
+    font-size: 17px;
+    font-family: SimHei;
+    font-weight: bold;
+    color: white;
+    background: #53BF57;
+    border: solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.font15px{
+    font-size:15px;
+}
+.labelAutoLine {
+    word-break: break-all;
+}
+.btnFollow{
+    background:#53BF57;
+    border:none;
+    border-radius:5px;
+    font-size:15px;
+    color:white;
+}
+.btnFollow:hover{
+    cursor:pointer;
+}

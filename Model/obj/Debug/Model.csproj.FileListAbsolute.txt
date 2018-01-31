@@ -1,0 +1,6 @@
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\bin\Debug\Model.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\bin\Debug\Model.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\obj\Debug\Model.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\obj\Debug\Model.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="CoolBBS.User" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="Scripts/cssjs/UserInfoStyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background: #F9F9F9;">
+    <form id="form1" runat="server">
+        <div>
+            <div style="display: flex; flex-direction: row">
+                <div style="flex: 1; text-align: left; margin-left: 50px;">
+                    <a class="returnHomePage" href="Default.aspx"><strong>CoolBBS</strong> 返回首页</a>
+                </div>
+                <div style="flex: 1; text-align: right; margin-right: 50px;">
+                    <a class="returnHomePage" href="UserInfo.aspx">
+                        <asp:Label ID="lblUserName" runat="server" Text="Username"></asp:Label></a>
+                    <a class="returnHomePage cursorpointer" href="UserEditInfo.aspx">
+                        <label>设置</label></a>
+                    <asp:LinkButton ID="btnUserExit" CssClass="returnHomePage" OnClick="btnUserExit_Click" runat="server">注销</asp:LinkButton>
+                </div>
+            </div>
+            <div style="width: 75%; margin: auto; margin-top: 30px;">
+                <h1 style="margin-left: 20px;">
+                    <asp:Label ID="lblUserName2" runat="server" Text="UserName"></asp:Label>的个人空间</h1>
+                <div id="div_menu">
+                    <ul>
+                        <li><a href="UserInfo.aspx">资料</a></li>
+                        <li><a href="UserDynamicList.aspx">帖子</a></li>
+                        <li><a href="UserFollow.aspx">关注</a></li>
+                        <li><a href="UserCollection.aspx">收藏</a></li>
+                    </ul>
+                </div>
+                <div style="display: flex; flex-direction: row; margin-top: 15px;">
+                    <div style="flex: 1; text-align: center; border: solid darkgray 1px; border-radius: 8px; background: white; height: 370px">
+                        <div style="border-bottom: solid darkgray 1px; text-align: left">
+                            <label style="font-family: SimHei; font-size: larger; margin-left: 10px;">头像</label>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <asp:Image ID="imgLoginUserHead"  runat="server" Width="160px" BackColor="black" Height="160px" />
+                        </div>
+                        <div>
+                            <br />
+                            <a href="UserInfo.aspx" class="returnHomePage">
+                                <strong>
+                                    <asp:Label ID="lblUserName3" runat="server" Text="UserName"></asp:Label>
+                                </strong>
+                            </a>
+                        </div>
+                        <div>
+                            <br />
+                            <input id="picHead" accept="Image/*" style="width: 70px;" type="file" runat="server" />
+                        </div>
+                        <div>
+                            <br />
+                            <asp:ImageButton ID="imgbtnUpdateHeadPic" ImageUrl="~/Image/updateUserHeadPic.png" OnClick="imgbtnUpdateHeadPic_Click" runat="server" />
+                        </div>
+                        <div>
+                            <asp:ImageButton ID="imgbtnUpdateInfo" ImageUrl="~/Image/updateUserInfo.png" OnClick="imgbtnUpdateInfo_Click" runat="server" />
+                        </div>
+                        <div style="padding-bottom: 5px">
+                            <br />
+                            <asp:Button ID="btnFollow" CssClass="btnFollow" runat="server" Text="关注" Visible="False" />
+                        </div>
+                    </div>
+                    <div style="flex: 4">
+                        <div>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Head.master.cs" Inherits="CoolBBS.Head" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="Scripts/cssjs/style.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
+    <script>
+
+</script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body style="background: #F9F9F9">
+    <form id="form1" runat="server">
+        <div>
+            <div>
+                <div>
+                    <asp:Image ID="imgIcon" runat="server" src="Image/icon.png" />
+                </div>
+                <div id="login">
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="hyLogin" CssClass="loginUserName" NavigateUrl="UserLogin.aspx" runat="server">登录</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hyShu" runat="server">|</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hyRegister" CssClass="loginUserName" NavigateUrl="UserRegister.aspx" runat="server">注册</asp:HyperLink></li>
+                        <li>
+                            <asp:LinkButton ID="hyLoginUser" CssClass="loginUserName" Visible="false" OnClick="hyLoginUser_Click" runat="server">username</asp:LinkButton>
+                        </li>
+                        <li style="padding-left:3px;">
+                            <asp:HyperLink ID="hySetting" CssClass="loginUserName" NavigateUrl="~/UserEditInfo.aspx" Visible="false" runat="server">设置</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:Button ID="btnUserExit" ForeColor="#656565" Visible="false" Font-Size="16px" CssClass="loginUserName" runat="server" BorderStyle="None" BackColor="Transparent" Text="注销" OnClick="btnUserExit_Click" />
+                        </li>
+                    </ul>
+                </div>
+                <div id="div_menu">
+                    <ul>
+                        <li><a href="default.aspx">热门</a></li>
+                        <li><a href="default.aspx?QueryAll=true">新帖</a></li>
+                        <li><a href="SectionList.aspx">版块</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="width: 70%; margin: 0 auto;">
+                <div style="margin: auto; margin-top: 5px; align-content: center;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

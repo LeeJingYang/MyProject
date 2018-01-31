@@ -1,0 +1,116 @@
+﻿#imgIcon {
+    margin: 0 0 0 12%;
+    height :120px ;
+    width:120px;
+}
+#login {
+    margin: 0 auto;
+    top:5%;
+    right:12%;
+    position:fixed;
+    position:absolute;
+}
+
+#login li {
+    list-style: none;
+    display: inline;
+}
+
+    #login li a {
+        color:#656565;
+        text-decoration: none;
+        font-size: 16px;
+    }
+#login li a:hover {
+    color: #53BF57;
+}
+.loginUserName:hover{
+    cursor:pointer;
+    color:#53BF57;
+}
+#div_Search {
+    top: 10%;
+    right: 12%;
+    position: fixed;
+    position: absolute;
+}
+#textSearch{
+    height:22px;
+    width:250px;
+    border:solid 1px #53BF57;
+    border-radius:10px;
+    outline-color: transparent;
+    font-size:15px;
+}
+#div_menu {
+    margin: 0;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 45px;
+    background: #49B04D !important;
+}
+#div_menu ul {
+    display:inline-block;
+    margin:auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#div_menu ul li {
+    margin: 0;
+    float: left;
+    height: 32px;
+    text-align: center;
+}
+#div_menu ul li a {
+    width: 130px;
+    color: white;
+    padding-top: 15px;
+    display: inline-block;
+    height: 30px;
+    text-decoration: none;
+}
+#div_menu ul li:hover a {
+    /*background: #4cff00;*/
+}
+#div_HotSection {
+    width: 95%;
+    margin-left: 4%;
+    margin-top: 5px;
+    border: solid 1px #E1E2E6;
+    border-radius: 5px;
+    background: white;
+            }
+#div_HotDynamic {
+    width: 95%;
+    margin-left: 4%;
+    margin-top: 5px;
+    border: solid 1px #E1E2E6;
+    border-radius: 5px;
+    background: white;
+}
+#div_AddNewDynamic {
+    width: 95%;
+    margin-left: 4%;
+}
+#btnAddDynamic {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-family: SimHei;
+    font-weight: bold;
+    color: white;
+    background: #53BF57;
+    border:solid 1px;
+    border-radius:5px;
+    cursor: pointer;
+}
+#lblHotSection,#lblHotDynamic {
+    width: 100%;
+    font-size: 20px;
+    font-family: SimHei;
+    color: black;
+    border: none;
+    margin: 15px;
+}

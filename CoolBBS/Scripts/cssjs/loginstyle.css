@@ -1,0 +1,54 @@
+﻿#div_main{
+    background:#FAFAFA;
+}
+#div_login{
+    width:50%;
+    height:550px;
+    margin:auto;
+    margin-top:75px;
+    background:white;
+}
+#lblLogin{
+    font-family:STSong;
+    font-size:23px;
+}
+#textUserName {
+    height: 22px;
+    border:none;
+    border-bottom:solid 1px orange;
+    outline-color:transparent;
+}
+#btnLogin {
+    font-size: 18px;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    cursor: pointer;
+}
+#btnRegister {
+    font-size: 18px;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    cursor: pointer;
+}
+#div_AddUser {
+    text-align: center;
+}
+#div_AddUser a {
+    font-size:16px;
+    padding: 10px;
+    text-decoration: none;
+    color: #4CAF50;
+}
+#div_command {
+    text-align: center;
+}
+    #div_command a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-size: 18px;
+    }
+.labelAutoLine {
+    word-break: break-all;
+}

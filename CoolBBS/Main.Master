@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="CoolBBS.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="Scripts/cssjs/style.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .ahover {
+            color: #808080;
+            text-decoration: none;
+        }
+
+            .ahover:hover {
+                cursor: pointer;
+                color: #ff6a00;
+            }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body style="background: #F9F9F9;">
+    <form id="form1" runat="server">
+        <div>
+            <div>
+                <div style="">
+                    <asp:Image ID="imgIcon" runat="server" src="Image/icon.png" />
+                </div>
+                <div id="login">
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="hyLogin" CssClass="loginUserName" NavigateUrl="UserLogin.aspx" runat="server">登录</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hyShu" runat="server">|</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hyRegister" CssClass="loginUserName" NavigateUrl="UserRegister.aspx" runat="server">注册</asp:HyperLink></li>
+                        <li>
+                            <asp:LinkButton ID="hyLoginUser" CssClass="loginUserName" Visible="false" OnClick="hyLoginUser_Click" runat="server">username</asp:LinkButton>
+                        </li>
+                        <li style="padding-left: 3px;">
+                            <asp:HyperLink ID="hySetting" NavigateUrl="~/UserEditInfo.aspx" Visible="false" runat="server">设置</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:Button ID="btnUserExit" ForeColor="#656565" Visible="false" Font-Size="16px" CssClass="loginUserName" runat="server" BorderStyle="None" BackColor="Transparent" Text="注销" OnClick="btnUserExit_Click" />
+                        </li>
+                    </ul>
+                </div>
+                <%--<div id="div_Search">
+                    <asp:TextBox ID="textSearch" runat="server" Text="  "></asp:TextBox>
+                </div>--%>
+                <div id="div_menu">
+                    <ul>
+                        <li><a href="default.aspx">热门</a></li>
+                        <li><a href="default.aspx?QueryAll=true">新帖</a></li>
+                        <li><a href="SectionList.aspx">话题</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="width: 70%; margin: 0 auto;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                <div style="width: 100%; display: flex; flex-direction: row; flex: 2; margin-top: 5px; overflow: hidden;">
+                    <div id="content" style="float: left; width: 68%; height: auto;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                    <div id="main_right" style="float: left; width: 32%; height: auto;">
+                        <div id="div_AddNewDynamic">
+                            <asp:Button ID="btnAddDynamic" runat="server" Text="发表新帖" OnClick="btnAddDynamic_Click" />
+                        </div>
+                        <div id="div_HotSection">
+                            <div style="border-bottom: solid 1px #E1E2E6; height: 30px">
+                                <asp:Label ID="lblHotSection" runat="server" Text="热门话题"></asp:Label>
+                            </div>
+                            <div>
+                                <asp:DataList ID="dgHotSection" runat="server" Width="100%" RepeatColumns="2">
+                                    <ItemTemplate>
+                                        <div style="text-align: center; height: auto; border-right: solid 1px #E1E2E6;">
+                                            <a href='<%# "DynamicList.aspx?SectionID="+Eval("SectionID") %>' class="ahover">
+                                                <asp:Label ID="lblSectionName" runat="server" Text='<%# Eval("SectionName") %>'></asp:Label>
+                                            </a>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                        </div>
+                        <div id="div_HotDynamic">
+                            <div style="border-bottom: solid 1px #E1E2E6; height: 30px">
+                                <asp:Label ID="lblHotDynamic" runat="server" Text="热帖排行"></asp:Label>
+                            </div>
+                            <div>
+                                <asp:DataList ID="dgHotDynamic" runat="server" Width="100%" RepeatColumns="1">
+                                    <ItemTemplate>
+                                        <div style="text-align: start; height: 22px;">
+                                            <a href='<%# "DynamicInfo.aspx?DynamicID="+Eval("DynamicID") %>' class="ahover" style="margin-left: 5px;">
+                                                <asp:Label ID="lblSectionName" runat="server" Text='<%# Eval("DynamicTitle").ToString().Length>18?Eval("DynamicTitle").ToString().Substring(0,18)+"...":Eval("DynamicTitle") %>'></asp:Label>
+                                            </a>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</body>
+</html>

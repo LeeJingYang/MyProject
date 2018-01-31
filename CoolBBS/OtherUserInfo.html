@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-2.1.0.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("appDemo", []);
+        app.controller("contDemo", function ($http,$scope) {
+            $http({
+                method: "post",
+                url: "ashx/UserDynamicList.ashx"
+            }).success(function (data) {
+                $scope.modellist = data;
+                $scope.picPath = data[0].PicturesPath;
+                }).error(function (msg) {
+                    alert(msg);
+            });
+        })
+    </script>
+    <style>
+        a{
+            color:#808080;
+            text-decoration:none;
+        }
+        a:hover 
+            color:orangered;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <!--<div ng-app="appDemo" ng-controller="contDemo" >
+        <div ng-repeat="item in modellist"   >
+            <label>{{item.DynamicTitle}}</label>
+            <label>SectionName</label>
+            <label>ReplyCount/ReadCount</label>
+            <label>PublishDate</label>
+        </div>     
+    </div>-->
+    <div ng-app="appDemo" ng-controller="contDemo">
+        <div style="text-align: left; margin-left: 50px;">
+            <a class="returnHomePage" href="Default.aspx"><strong>CoolBBS</strong> 返回首页</a>
+        </div>
+        <div style="width: 75%; margin: auto; margin-top: 30px;">
+            <h1 style="margin-left: 20px;">
+                <label ng-bind="modellist[0].UserName"></label>的个人空间
+            </h1>
+            <div style="display: flex; flex-direction: row; margin-top: 15px;">
+                <div style="flex: 1; text-align: center; border: solid darkgray 1px; border-radius: 8px; background: white; height:auto">
+                    <div style="margin-top: 10px;">
+                        <img src="{{picPath}}" />
+                    </div>
+                    <div>
+                        <br />
+                        <a href="index.html?UserNum={{modellist[0].UserNum}}" class="returnHomePage">
+                            <strong>
+                                <label ng-bind="modellist[0].UserName"></label>
+                            </strong>
+                        </a>
+                    </div>
+                    <div>
+                        <div style="padding-bottom: 5px">
+                            <br />
+                            <input id="btnFollow" type="button" value="关注" />
+                        </div>
+                        <div>
+                            <br />
+                            <label ng-bind="modellist[0].Hobby"></label>
+                        </div>
+                        <div style="padding-bottom: 5px">
+                            <br />
+                            <label ng-bind="modellist[0].Remark"></label>
+                        </div>
+                    </div>
+                    <div style="flex: 4">
+                        <div style="border: solid darkgray 1px; border-radius: 8px; background: white;margin-left:10px;">
+                            <div style="border-bottom: solid darkgray 1px; text-align: left">
+                                <label style="font-family: SimHei; font-size: larger; margin-left: 10px;">帖子</label>
+                            </div>
+                            <div style="width: 100%; display: flex; flex-direction: row; text-align: center;border-bottom:solid darkgrey 1px;">
+                                <label style="width: 50%; height: 100%; border-right: solid darkgrey 1px; font-size: 16px;">主题</label>
+                                <label style="width: 15%; height: 100%; border-right: solid darkgrey 1px; font-size: 16px;">版块</label>
+                                <label style="width: 15%; height: 100%; border-right: solid darkgrey 1px; font-size: 16px;">回复/查看</label>
+                                <label style="width: 20%; height: 100%; font-size: 16px;">发帖时间</label>
+                            </div>
+                            <div ng-repeat="item in modellist" style="display:flex;flex-direction:row">
+                                <div style="width:50%;text-align:center;border-right:solid darkgrey 1px;">
+                                    <a href="DynamicInfo.aspx?DynamicID={{item.DynamicID}}"><label>{{item.DynamicTitle}}</label></a>
+                                </div>
+                                <div style="width:15%;text-align:center;border-right:solid darkgrey 1px;">
+                                    <a href="Default.aspx?SectionID={{item.SectionID}}"><label>{{item.SectionName}}</label></a>
+                                </div>
+                                <div style="width:15%;text-align:center;border-right:solid darkgrey 1px;">
+                                    <a href="DynamicInfo.aspx?Dynamic={{item.DynamicID}}"><label>{{item.ReplyCount}}/{{item.ReadCount}}</label></a>
+                                </div>
+                                <div style="width:20%;text-align:center;">
+                                    <label>{{item.PublishDate}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

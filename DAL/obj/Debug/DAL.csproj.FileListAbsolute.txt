@@ -1,0 +1,8 @@
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\bin\Debug\DAL.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\bin\Debug\DAL.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\bin\Debug\Model.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\bin\Debug\Model.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\obj\Debug\DAL.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\DAL\obj\Debug\DAL.pdb

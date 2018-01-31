@@ -1,0 +1,10 @@
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\BLL.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\BLL.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\DAL.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\Model.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\DAL.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\bin\Debug\Model.pdb
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\obj\Debug\BLL.dll
+E:\Mine\.Net Web\CoolBBS\CoolBBS\BLL\obj\Debug\BLL.pdb
