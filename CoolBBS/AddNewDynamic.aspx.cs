@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Windows;
 
 namespace CoolBBS
 {
@@ -21,15 +22,19 @@ namespace CoolBBS
                 return;
             }
             imgVerCode.ImageUrl = "ImageCode.aspx";
-            cboSections.DataSource = BLL.SectionBll.GetSectionList();
-            cboSections.DataTextField = "SectionName";
-            cboSections.DataValueField = "SectionID";
-            cboSections.DataBind();
+            if (!IsPostBack)
+            {
 
+            }
         }
 
         protected void btnAddNewDynamic_Click1(object sender, EventArgs e)
         {
+            if (lblGG.Text == "选择话题")
+            {
+                Response.Write("<script>alert('请选择话题！')</script>");
+                return;
+            }
             if (string.IsNullOrEmpty(textDynamicTitle.Text))
             {
                 Response.Write("<script>alert('请输入帖子标题！')</script>");
@@ -64,7 +69,7 @@ namespace CoolBBS
             dynamic.DynamicTitle = textDynamicTitle.Text;
             dynamic.DynamicContent = textDynamicContent.Text;
             dynamic.PublishDate = DateTime.Now;
-            dynamic.SectionID = cboSections.SelectedValue;
+            dynamic.SectionID = BLL.SectionBll.GetSectionByName(lblGG.Text).SectionID;
             dynamic.UserNum = (Session["LoginUser"] as Model.User).UserNum;
             List<Model.Picture> picList = new List<Model.Picture>();
             List<HttpPostedFile> fileList = Session["DynamicPicFiles"] as List<HttpPostedFile>;
@@ -84,7 +89,15 @@ namespace CoolBBS
                 Response.Write("<script>alert('发表成功！')</script>");
                 for (int i = 0; i < fileList.Count; i++)
                 {
-                    fileList[i].SaveAs(Server.MapPath("Image/UploadImg/") + picList[0].PicturesPath);
+                    fileList[i].SaveAs(Server.MapPath("Image/UploadImg/") + picList[i].PicturesPath);
+                    System.Drawing.Image img = System.Drawing.Image.FromFile(Server.MapPath("Image/UploadImg/") + picList[i].PicturesPath);
+                    Graphics g = Graphics.FromImage(img);
+                    SolidBrush brush = new SolidBrush(Color.Blue);
+                    g.DrawString("@" + (Session["LoginUser"] as Model.User).UserName, new Font("宋体", 13f), brush, 0, 0);
+                    img.Save(Server.MapPath("Image/UploadImg/watermark/") + picList[i].PicturesPath);
+                    g.Dispose();
+                    img.Dispose();
+                    File.Delete(Server.MapPath("Image/UploadImg/") + picList[i].PicturesPath);
                 }
                 Session["DynamicPicFiles"] = null;
             }

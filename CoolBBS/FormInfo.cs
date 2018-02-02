@@ -5,8 +5,9 @@ using System.Web;
 
 namespace CoolBBS
 {
-    public static class FormInfo
+    public class FormInfo
     {
-        public static string otherUesrNum { get; set; }
+        public static string UserNum { get; set; }
+        public static string SelectSection { get; set; }
     }
 }

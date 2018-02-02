@@ -7,9 +7,10 @@
     <script>
         
         $(function () {
+            alert('bbb');
             $.ajax({
                 type: "post",
-                url="ashx/UserDynamicList.ashx",
+                url:"ashx/UserDynamicList.ashx",
                 dataType: "json",
                 success: function (data) {
                     alert(data);

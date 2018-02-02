@@ -14,47 +14,56 @@ namespace CoolBBS.ashx
 
         public void ProcessRequest(HttpContext context)
         {
-            //context.Response.Write("123");
-            string name = context.Request["datalist"];
-            List<Model.Dynamic> dynamicList = null;
-            dynamicList = BLL.DynamicBll.GetDynamicByUserNum(FormInfo.otherUesrNum);
-            var list = from d in dynamicList
-                       select new
-                       {
-                           UserNum = d.UserNum,
-                           UserName = BLL.UserBll.GetUserByUserNum(d.UserNum).UserName,
-                           Hobby = BLL.UserBll.GetUserByUserNum(d.UserNum).Hobby,
-                           Remark = BLL.UserBll.GetUserByUserNum(d.UserNum).Remark,
-                           PicturesPath = BLL.PictureBll.GetUserHeadByPicNum(d.UserNum).PicturesPath,
-                           DynamicID = d.DynamicID,
-                           DynamicTitle = d.DynamicTitle,
-                           SectionID = d.SectionID,
-                           SectionName = BLL.SectionBll.GetSectionByID(d.SectionID).SectionName,
-                           ReplyCount = BLL.ReplyBll.GetReplyByDynamicID(d.DynamicID).Count,
-                           ReadCount = d.ReadCount,
-                           PublishDate = d.PublishDate.ToString()
-                       };
-            List<Model.UserDynamic> dyList = new List<Model.UserDynamic>();
-            foreach (var item in list)
+            if (context.Request["UserNum"]!=null)
             {
-                Model.UserDynamic dy = new Model.UserDynamic();
-                dy.UserNum = item.UserNum;
-                dy.UserName = item.UserName;
-                dy.Hobby = item.Hobby==null?null:"爱好:"+item.Hobby;
-                dy.Remark = item.Remark;
-                dy.PicturesPath = item.PicturesPath;
-                dy.DynamicID = item.DynamicID;
-                dy.DynamicTitle = item.DynamicTitle;
-                dy.SectionID = item.SectionID;
-                dy.SectionName = item.SectionName;
-                dy.ReadCount = item.ReadCount;
-                dy.ReplyCount = item.ReplyCount;
-                dy.PublishDate = item.PublishDate;
-                dyList.Add(dy);
+                FormInfo.UserNum = context.Request["UserNum"];
             }
-            DataContractJsonSerializer json = new DataContractJsonSerializer(dyList.GetType());
+            if (context.Request["index"] == "1")
+            {
+                if (FormInfo.UserNum.Length == 22)
+                {
+                    context.Response.Write("请先登录!");
+                }
+                else if (FormInfo.UserNum.Length == 44)
+                {
+                    string result=UserFollow(FormInfo.UserNum.Substring(0, 22), FormInfo.UserNum.Substring(22));
+                    context.Response.Write(result);
+                }
+            }
+            else if (context.Request["UserNum"] != null)
+            {
+                string otheruserNum = FormInfo.UserNum.Substring(0, 22);
+                List<Model.Dynamic> dynamicList = null;
+                dynamicList = BLL.DynamicBll.GetDynamicByUserNum(otheruserNum);
+                List<Model.UserDynamic> dyList = new List<Model.UserDynamic>();
+                foreach (Model.Dynamic item in dynamicList)
+                {
+                    Model.UserDynamic dy = new Model.UserDynamic();
+                    dy.UserNum = item.UserNum;
+                    dy.UserName = BLL.UserBll.GetUserByUserNum(item.UserNum).UserName;
+                    dy.Hobby = BLL.UserBll.GetUserByUserNum(item.UserNum).Hobby == null ? null : "爱好:" + BLL.UserBll.GetUserByUserNum(item.UserNum).Hobby;
+                    dy.Remark = BLL.UserBll.GetUserByUserNum(item.UserNum).Remark;
+                    dy.PicturesPath = BLL.PictureBll.GetUserHeadByPicNum(item.UserNum).PicturesPath;
+                    dy.DynamicID = item.DynamicID;
+                    dy.DynamicTitle = item.DynamicTitle;
+                    dy.SectionID = item.SectionID;
+                    dy.SectionName = BLL.SectionBll.GetSectionByID(item.SectionID).SectionName;
+                    dy.ReadCount = item.ReadCount;
+                    dy.ReplyCount = BLL.ReplyBll.GetReplyByDynamicID(item.DynamicID).Count;
+                    dy.PublishDate = item.PublishDate.ToString();
+                    dyList.Add(dy);
+                }
+                DataContractJsonSerializer json = new DataContractJsonSerializer(dyList.GetType());
+                json.WriteObject(context.Response.OutputStream, dyList);
+            }
 
-            json.WriteObject(context.Response.OutputStream, dyList);
+        }
+        public string UserFollow(string myUserNum,string otherUserNum)
+        {
+            Model.Follow follow = new Model.Follow();
+            follow.FollowUserNum = myUserNum;
+            follow.BeUserNum = otherUserNum;
+            return BLL.FollowBll.InsertFollow(follow);
         }
 
         public bool IsReusable

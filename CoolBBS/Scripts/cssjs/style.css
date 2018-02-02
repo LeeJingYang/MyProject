@@ -5,7 +5,7 @@
 }
 #login {
     margin: 0 auto;
-    top:5%;
+    top:7%;
     right:12%;
     position:fixed;
     position:absolute;
@@ -72,7 +72,7 @@
     text-decoration: none;
 }
 #div_menu ul li:hover a {
-    /*background: #4cff00;*/
+    background: #4cff00;
 }
 #div_HotSection {
     width: 95%;

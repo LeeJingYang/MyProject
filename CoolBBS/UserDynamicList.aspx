@@ -36,8 +36,8 @@
                 <asp:DataList ID="dgDynamicList" Width="100%" runat="server">
                     <ItemTemplate>
                         <div style="display: flex; flex-direction: row; text-align: center;height:33px;padding-bottom:2px;">
-                            <asp:HyperLink Width="50%" NavigateUrl='DynamicInfo.aspx?DynamicID=<%# Eval("DynamicID") %>' CssClass="lblDynamicTitle" ID="hyDynamic" runat="server"><%# Eval("DynamicTitle") %></asp:HyperLink>
-                            <asp:HyperLink Width="15%" NavigateUrl='DynamicList.aspx?SectionID=<%# Eval("SectionID") %>' CssClass="lblSectionName" ID="hySection" runat="server"><%# Eval("SectionName") %></asp:HyperLink>
+                            <asp:HyperLink Width="50%" NavigateUrl='<%# Eval("DynamicID") %>' CssClass="lblDynamicTitle" ID="hyDynamic" runat="server"><%# Eval("DynamicTitle") %></asp:HyperLink>
+                            <asp:HyperLink Width="15%" NavigateUrl='<%# Eval("SectionID") %>' CssClass="lblSectionName" ID="hySection" runat="server"><%# Eval("SectionName") %></asp:HyperLink>
                             <asp:HyperLink Width="15%" ID="hyReplyReadCount" runat="server"><%# Eval("ReplyCount") %>/<%# Eval("ReadCount") %></asp:HyperLink>
                             <asp:Label Width="20%" ID="lblPublishDate" runat="server"><%# Eval("PublishDate") %></asp:Label>
                         </div>

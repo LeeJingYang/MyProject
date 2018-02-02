@@ -30,5 +30,9 @@ namespace BLL
             List<Model.Section> sectionList = DAL.DBHelper.DataGetMethod<Model.Section>("and [SectionTypeID]='"+sectionTypeID+"'");
             return sectionList;
         }
+        public static Model.Section GetSectionByName(string sectionName)
+        {
+            return DAL.DBHelper.DataGetMethod<Model.Section>("and [SectionName]='" + sectionName + "'")[0];
+        }
     }
 }

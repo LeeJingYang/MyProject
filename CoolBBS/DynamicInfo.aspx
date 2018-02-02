@@ -56,7 +56,7 @@
                     <asp:DataList ID="dgPics" Width="100%" runat="server">
                         <ItemTemplate>
                             <div style="text-align:center;width:100%;">
-                                <asp:Image ID="Image1" ImageUrl='<%# Eval("PicturesPath") %>' runat="server" />
+                                <a href='<%# Eval("PicturesPath") %>' download=".."><asp:Image ID="Image1" ImageUrl='<%# Eval("PicturesPath") %>' runat="server" /></a>
                             </div>
                         </ItemTemplate>
                     </asp:DataList>
@@ -98,7 +98,7 @@
                     <div style="height: 2px; background: #CBCBCB"></div>
                 </SeparatorTemplate>
             </asp:DataList>
-            <div style="margin-left: 25%; margin-top: 20px; text-align: center; width: 75%;">
+            <div style="margin-left: 25%; margin-top: 50px; text-align: center; width: 75%;">
                 <asp:Button ID="btnToLogin" CssClass="btnAddNewDynamic" runat="server" Text="回复" OnClick="btnToLogin_Click" />
             </div>
         </div>

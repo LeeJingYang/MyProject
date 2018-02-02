@@ -1,4 +1,7 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CoolBBS._Default" EnableEventValidation="false" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CoolBBS._Default" %>
+
+<%--<%@ OutputCache Duration="100" VaryByParam="none" VaryByControl="dgDynamicList" %>--%>
+<%--<%@ OutputCache CacheProfile="dynamicListCache" %>--%>
 
 <asp:Content ID="header" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -28,8 +31,9 @@
             color: darkgoldenrod;
             font-size: 16px;
         }
-        .cursorPoint:hover{
-            cursor:pointer;
+
+        .cursorPoint:hover {
+            cursor: pointer;
         }
 
         #fd {
@@ -37,7 +41,7 @@
             height: 330px;
             /*border:2px solid blanchedalmond;*/
             /*overflow:auto;*/
-            margin: 0 auto;
+            margin: 5px auto;
             /*border-radius:50px;*/
         }
 
@@ -61,16 +65,16 @@
 <asp:Content ID="con_lunbo" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div id="fd">
         <ul>
-            <li style="display: block;"><a href="###">
-                <img src="Image/131615808334469505.jpg" /></a></li>
-            <li><a href="###">
-                <img src="Image/user.jpg" /></a></li>
-            <li><a href="###">
-                <img src="Image/icon.png" /></a></li>
-            <li><a href="###">
-                <img src="Image/logo.png" /></a></li>
-            <li><a href="###">
-                <img src="Image/131615808277999322.jpg" /></a></li>
+            <li style="display: block;"><a href="DynamicList.aspx?SectionID=section2018012500022">
+                <img src="Image/lunbo/好电影.jpg" /></a></li>
+            <li><a href="DynamicList.aspx?SectionID=section2018012500021">
+                <img src="Image/lunbo/好音乐.jpg" /></a></li>
+            <li><a href="DynamicList.aspx?SectionID=section2018012500017">
+                <img src="Image/lunbo/酷安夜话.jpg" /></a></li>
+            <li><a href="DynamicList.aspx?SectionID=section2018012500011">
+                <img src="Image/lunbo/旅行志.jpg" /></a></li>
+            <li><a href="DynamicList.aspx?SectionID=section2018012500014">
+                <img src="Image/lunbo/手机摄影.jpg" /></a></li>
         </ul>
     </div>
     <script src="Scripts/cssjs/js/jquery-1.11.0.min.js"></script>
@@ -119,7 +123,7 @@
                 })
             },
             dast: function () {
-                $("<div/>").attr("id", "d1").css({ "position": "relative", "left": "260px", "top": "-40px" }).appendTo("#fd");
+                $("<div/>").attr("id", "d1").css({ "position": "relative", "left": "440px", "top": "-40px" }).appendTo("#fd");
                 for (var k = 0; k < app.index; k++) {
                     $("<a/>").attr("title", k).css({ "display": "block", "background-color": "black", "width": "10px", "height": "10px", "border-radius": "5px", "float": "left", "margin-left": "10px" }).appendTo("#d1");
                 }
@@ -128,7 +132,7 @@
                 clearInterval(app.time);
             },
             start: function () {
-                app.time = setInterval(app.clearStyle, 1000);
+                app.time = setInterval(app.clearStyle, 2000);
             }
         }
         app.init();
@@ -142,7 +146,8 @@
                     <ItemTemplate>
                         <div class="templateMain" style="margin-left: 10px; margin-top: 5px; width: 100%">
                             <div style="float: left">
-                                <a href='OtherUserInfo.html'><asp:Image ID="imgUserHeadPic" Height="60px" Width="60px" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" /></a>
+                                <a href='OtherUserInfo.html'>
+                                    <asp:Image ID="imgUserHeadPic" Height="60px" Width="60px" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" /></a>
                             </div>
                             <div style="float: left; margin-left: 10px;">
                                 <div style="margin-top: 10px; overflow: hidden;">
@@ -152,10 +157,9 @@
                                     </a>
                                 </div>
                                 <div style="margin-top: 12px; color: darkgrey; font-size: 15px;">
-                                    <a href='OtherUserInfo.html?UserNum=<%# Eval("UserNum") %>' class="agrey ahover">
+                                    <a href='OtherUserInfo.html?<%# Eval("UserNum") %><%# Eval("MyUserNum") %>' class="agrey ahover">
                                         <asp:Label ID="lblUserName" runat="server" Text='<%# Eval("UserName") %>'></asp:Label></a>
-                                        <%--<asp:Button ID="Button1" runat="server" BackColor="Transparent" CommandName="toOtherUserInfo" CommandArgument='<%# Eval("UserNum") %>' BorderStyle="None" Text='<%# Eval("UserName") %>' />|--%>
-                                <asp:Label ID="Label4" runat="server" Text="浏览:"></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Text="浏览:"></asp:Label>
                                     <asp:Label ID="lblDynamicReadCount" runat="server" Text='<%# Eval("ReadCount") %>'></asp:Label>|
                                 <asp:Label ID="Label7" runat="server" Text="回复:"></asp:Label>
                                     <a href='DynamicInfo.aspx?DynamicID=<%# Eval("DynamicID") %>' class="agrey ahover">
@@ -171,7 +175,7 @@
                     </SeparatorTemplate>
                 </asp:DataList>
             </div>
-            <div style="text-align:center;">
+            <div style="text-align: center;">
                 <asp:Button ID="btnFrontPage" runat="server" Text="上一页" OnClick="btnFrontPage_Click" />
                 <asp:Label ID="lblPageNum" runat="server" Text="1"></asp:Label>
                 <asp:Button ID="btnNextPage" runat="server" Text="下一页" OnClick="btnNextPage_Click" />

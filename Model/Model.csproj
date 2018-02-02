@@ -48,6 +48,7 @@
     <Compile Include="Section.cs" />
     <Compile Include="SectionType.cs" />
     <Compile Include="TableAttribute.cs" />
+    <Compile Include="TypeSection.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDynamic.cs" />

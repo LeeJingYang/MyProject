@@ -30,7 +30,7 @@
                     <div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="textLoginName" CssClass="mdl-textfield__input" Text="yanger" runat="server"></asp:TextBox>
-                            <label class="mdl-textfield__label" id="login_label" for="textLoginName">用户名/Email/手机号</label>
+                            <label class="mdl-textfield__label" id="login_label" for="textLoginName">用户名/Email</label>
                         </div>
                         <br />
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

@@ -100,7 +100,7 @@ namespace CoolBBS
             lblDynamicContent.Text ="   "+ dynamic.DynamicContent;
             foreach (Model.Picture item in dynamicPic)
             {
-                item.PicturesPath = "Image/UploadImg/" + item.PicturesPath;
+                item.PicturesPath = "Image/UploadImg/watermark/" + item.PicturesPath;
             }
             dgPics.DataSource = dynamicPic;
             dgPics.DataBind();
@@ -144,7 +144,15 @@ namespace CoolBBS
 
         protected void imgPublishUserHead_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("UserInfo.aspx?UserNum=" + BLL.DynamicBll.GetDynamicByID(Request.QueryString["DynamicID"]).UserNum);
+            Model.Dynamic dynamic = BLL.DynamicBll.GetDynamicByID(Request.QueryString["DynamicID"]);
+            if (Session["LoginUser"]!=null&&dynamic.UserNum==(Session["LoginUser"]as Model.User).UserNum)
+            {
+                Response.Redirect("UserInfo.aspx");
+            }
+            else
+            {
+                Response.Redirect("OtherUserInfo.html?"+dynamic.UserNum);
+            }
         }
 
         protected void btnCollect_Click(object sender, EventArgs e)

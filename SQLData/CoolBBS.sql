@@ -142,6 +142,7 @@ insert into [Section] values('section201801250003','酷安萌妹','sType201801250001
 insert into [Section] values('section201801250004','酷安生日会','sType201801250001',0)
 insert into [Section] values('section201801250005','酷安鬼话','sType201801250001',0)
 go
+
 insert into [SectionType] values('sType201801250002','交易',0)
 go
 insert into [Section] values('section201801250006','二手交易','sType201801250002',0)
@@ -209,13 +210,15 @@ insert into Dynamic values('dynamic201801250003','just a title three','content',
 
 delete  from Reply
 select * from [Dynamic]
+select * from [Picture]
 select * from [SectionType] where [State]=0
 select ROW_NUMBER() over(order by [DynamicID]) as RowID,* from[Dynamic]
 
 update [Picture] set [PictureID]='5',[PicturesPath]='Image/UserPic/131617655574383403.jpg',[PictureNum]='user131615817717981668',[State]='0' where [PictureID]='5'
 
-select * from [Follow]
+select * from [User] where [State]=0 and [UserNum] in(select [BeUserNum] from [Follow] where [FollowUserNum]='user131612711130116355')
 select * from [Collection]
 select * from [Picture]
+select * from [Follow]
 
 select * from [User] where [State]=0 and [UserNum] in(select [UserNum] from [Dynamic] where [DynamicID]='dynamic131615808140298346')

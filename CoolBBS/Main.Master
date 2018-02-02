@@ -107,8 +107,30 @@
                 </div>
             </div>
         </div>
-
-
+        <div style="text-align:center;margin-top:50px;">
+            <div>
+                <div>
+                    <div>
+                        <a>关于CoolBBS</a> &middot;
+                <a>联系合作</a> &middot;
+                <a>加入我们</a> &middot;
+                <a>版权声明</a> &middot;
+                <a>CoolBBS手机APP</a> &middot;
+                <a>CoolBBS开发者平台</a>
+                    </div>
+                    <div>
+                        Copyight &copy; 2017-2018 CoolBBS网, All Rights Reserved.
+                    </div>
+                    <di>
+                        CoolBBS网V8.0 | <a>粤ICP备9999999号-2</a>
+                    |
+                粤网文 [2018] 9999-999号 | 粤IAS备 201802011006
+                </div>
+                <div>
+                    粤公网安备9999999999号
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>

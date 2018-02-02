@@ -22,7 +22,7 @@
                 <div style="text-align: center;margin-top:10px;">
                     <a href='DynamicList.aspx?SectionID=<%# Eval("SectionID") %>'>
                         <div>
-                            <img style="width: 150px; height: 150px;" src='Image/SectionIcon/<%# Eval("SectionName") %>.jpg' />
+                            <img style="width: 150px; height: 150px;border-radius:7px;" src='Image/SectionIcon/<%# Eval("SectionName") %>.jpg' />
                         </div>
                         <asp:Label ID="lblSectionName" runat="server" Text='<%# Eval("SectionName") %>'></asp:Label>
                     </a>

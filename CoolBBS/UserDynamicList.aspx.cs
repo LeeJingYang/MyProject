@@ -23,9 +23,9 @@ namespace CoolBBS
             var list = from d in dynamicList
                        select new
                        {
-                           DynamicID = d.DynamicID,
+                           DynamicID = "DynamicInfo.aspx?DynamicID="+d.DynamicID,
                            DynamicTitle = d.DynamicTitle,
-                           SectionID = d.SectionID,
+                           SectionID = "DynamicList.aspx?SectionID="+d.SectionID,
                            SectionName = BLL.SectionBll.GetSectionByID(d.SectionID).SectionName,
                            ReplyCount = BLL.ReplyBll.GetReplyByDynamicID(d.DynamicID).Count,
                            ReadCount = d.ReadCount,

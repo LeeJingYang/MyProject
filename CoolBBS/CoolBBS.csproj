@@ -147,10 +147,16 @@
     <Content Include="ImageCode.aspx" />
     <Content Include="Image\131615808277999322.jpg" />
     <Content Include="Image\131615808334469505.jpg" />
+    <Content Include="Image\ic_close_black_18dp.png" />
     <Content Include="Image\ic_image_black_48dp.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\icon.png" />
     <Content Include="Image\icon_addPic.png" />
+    <Content Include="Image\lunbo\好电影.jpg" />
+    <Content Include="Image\lunbo\好音乐.jpg" />
+    <Content Include="Image\lunbo\手机摄影.jpg" />
+    <Content Include="Image\lunbo\旅行志.jpg" />
+    <Content Include="Image\lunbo\酷安夜话.jpg" />
     <Content Include="Image\updateUserHeadPic.png" />
     <Content Include="Image\updateUserInfo.png" />
     <Content Include="Image\user.jpg" />
@@ -174,6 +180,7 @@
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
     <Content Include="ashx\UserDynamicList.ashx" />
+    <Content Include="ashx\AllTypeSection.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -214,7 +221,6 @@
     <Content Include="sectionList.ascx" />
     <Content Include="SectionList.aspx" />
     <Content Include="DynamicList.aspx" />
-    <Content Include="test.aspx" />
     <Content Include="test.html" />
     <Content Include="UserCollection.aspx" />
     <Content Include="UserDynamicList.aspx" />
@@ -238,6 +244,9 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ashx\AllTypeSection.ashx.cs">
+      <DependentUpon>AllTypeSection.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\UserDynamicList.ashx.cs">
       <DependentUpon>UserDynamicList.ashx</DependentUpon>
     </Compile>
@@ -309,13 +318,6 @@
     <Compile Include="DynamicList.aspx.designer.cs">
       <DependentUpon>DynamicList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,7 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\UploadImg\" />
+    <Folder Include="Image\UploadImg\watermark\" />
     <Folder Include="Image\UserPic\" />
   </ItemGroup>
   <ItemGroup>

@@ -4,13 +4,13 @@
     <link href="Scripts/cssjs/DynaficListCss.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <div style="text-align: center">
-        <asp:Label ID="lblSectioName" Font-Size="X-Large" runat="server" Text="Label">版块名</asp:Label>
-    </div>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div>
+        <div style="text-align: center">
+            <asp:Label ID="lblSectioName" Font-Size="X-Large" runat="server" Text="Label">版块名</asp:Label>
+        </div>
         <div>
             <asp:DataList ID="dgDynamicList" runat="server" CssClass="borderradiu" BackColor="White" Width="100%">
                 <ItemTemplate>
@@ -26,7 +26,7 @@
                                 </a>
                             </div>
                             <div style="margin-top: 12px; color: darkgrey; font-size: 15px;">
-                                <a href='OtherUserInfo.html?UserNum=<%# Eval("UserNum") %>' class="agrey ahover">
+                                <a href='OtherUserInfo.html?<%# Eval("UserNum") %>' class="agrey ahover">
                                     <asp:Label ID="lblUserName" runat="server" Text='<%# Eval("UserName") %>'></asp:Label></a>|
                                 <asp:Label ID="Label4" runat="server" Text="浏览:"></asp:Label>
                                 <asp:Label ID="lblDynamicReadCount" runat="server" Text='<%# Eval("ReadCount") %>'></asp:Label>|
